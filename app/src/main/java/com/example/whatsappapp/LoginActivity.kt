@@ -80,8 +80,8 @@ import com.google.firebase.auth.FirebaseAuthInvalidUserException
      }
 
      private fun validarCampos(): Boolean {
-         email = binding.editTextLoginEmail.text.toString()
-         senha = binding.editTextLoginSenha.text.toString()
+         email = binding.editEmail.text.toString()
+         senha = binding.editSenha.text.toString()
             if (email.isNotEmpty()) {
                 binding.textInputLayoutLoginEmail.error = null
                 if (senha.isNotEmpty()){

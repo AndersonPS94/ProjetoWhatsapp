@@ -2,11 +2,7 @@ package com.example.whatsappapp
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.whatsappapp.databinding.ActivityCadastroBinding
 import com.example.whatsappapp.model.Usuario
 import com.example.whatsappapp.utils.exibirMensagem
@@ -92,9 +88,9 @@ class CadastroActivity : AppCompatActivity() {
     }
 
     private fun validarCampos(): Boolean {
-        nome = binding.editTextNome.text.toString()
-        email = binding.editTextEmail.text.toString()
-        senha = binding.editTextSenha.text.toString()
+        nome = binding.editNome.text.toString()
+        email = binding.editEmail.text.toString()
+        senha = binding.editSenha.text.toString()
         if(nome.isNotEmpty()){
             binding.TextInputNome.error = null
             if (email.isNotEmpty()){

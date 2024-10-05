@@ -31,7 +31,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextLoginEmail"
+            android:id="@+id/edit_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Digite seu e-mail"
@@ -51,7 +51,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayoutLoginEmail">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextLoginSenha"
+            android:id="@+id/edit_senha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Digite a sua senha"

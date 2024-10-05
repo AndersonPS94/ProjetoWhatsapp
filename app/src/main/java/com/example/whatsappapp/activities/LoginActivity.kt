@@ -1,11 +1,8 @@
- package com.example.whatsappapp
+ package com.example.whatsappapp.activities
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.whatsappapp.databinding.ActivityLoginBinding
 import com.example.whatsappapp.utils.exibirMensagem
 import com.google.firebase.auth.FirebaseAuth

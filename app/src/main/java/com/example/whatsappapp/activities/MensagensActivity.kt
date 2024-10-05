@@ -1,11 +1,8 @@
 package com.example.whatsappapp.activities
 
+import android.os.Build
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.whatsappapp.R
 import com.example.whatsappapp.databinding.ActivityMensagensBinding
 import com.example.whatsappapp.model.Usuario
 import com.example.whatsappapp.utils.Constantes
@@ -31,10 +28,12 @@ class MensagensActivity : AppCompatActivity() {
             val origem = extras.getString("origem")
             if (origem == Constantes.ORIGEM_CONTATO) {
 
+                dadosDestinatario = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    extras.getParcelable("dadosDestinatario", Usuario::class.java)
 
-                dadosDestinatario = extras.getParcelable("dadosDestinatario", Usuario::class.java)
-
-
+                }else {
+                    extras.getParcelable("dadosDestinatario")
+                }
             }else if (origem == Constantes.ORIGEM_CONVERSA) {
                     // Recuperar os dados da conversa
 

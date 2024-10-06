@@ -38,13 +38,16 @@ class ContatosFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentContatosBinding.inflate(inflater, container, false)
+
+        binding = FragmentContatosBinding.inflate(
+            inflater, container, false
+        )
 
 
         contatosAdapter = ContatosAdapter{ usuario ->
             val intent = Intent(context, MensagensActivity::class.java)
             intent.putExtra("dadosDestinatario",usuario)
-            intent.putExtra("origem", Constantes.ORIGEM_CONTATO)
+            //intent.putExtra("origem", Constantes.ORIGEM_CONTATO)
             startActivity(intent)
         }
         binding.rvContatos.adapter = contatosAdapter
@@ -64,11 +67,13 @@ class ContatosFragment : Fragment() {
 
     private fun adicionarListenerContatos() {
         eventoSnapshot = firestore
-            .collection("usuarios")
+            .collection(Constantes.USUARIOS)
             .addSnapshotListener { querySnapshot, erro ->
 
                 val listaContatos = mutableListOf<Usuario>()
                 val documentos = querySnapshot?.documents
+
+
                 documentos?.forEach { documentSnapshot ->
                     val idUsuarioLogado = firebaseAuth.currentUser?.uid
                     val usuario = documentSnapshot.toObject(Usuario::class.java)

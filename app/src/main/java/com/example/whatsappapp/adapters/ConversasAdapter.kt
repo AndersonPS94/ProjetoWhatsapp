@@ -26,10 +26,11 @@ class ConversasAdapter(
         fun bind(conversa: Conversa) {
             binding.textConversaNome.text = conversa.nome
             binding.textConversaMensagem.text = conversa.ultimaMensagem
-            Picasso.get()
-                .load(conversa.foto)
-                .into(binding.imageConversaFoto)
-
+            if (conversa.foto.isNotEmpty()) {
+                Picasso.get()
+                    .load(conversa.foto)
+                    .into(binding.imageConversaFoto)
+            }
             //Evento de clique
             binding.clItemConversa.setOnClickListener {
                 onClick(conversa)

@@ -2,14 +2,12 @@ package com.example.whatsappapp.fragments
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.whatsappapp.R
 import com.example.whatsappapp.activities.MensagensActivity
 import com.example.whatsappapp.adapters.ContatosAdapter
 import com.example.whatsappapp.databinding.FragmentContatosBinding
@@ -77,6 +75,7 @@ class ContatosFragment : Fragment() {
                 documentos?.forEach { documentSnapshot ->
                     val idUsuarioLogado = firebaseAuth.currentUser?.uid
                     val usuario = documentSnapshot.toObject(Usuario::class.java)
+
                     if (usuario != null && idUsuarioLogado != null) {
                         if (idUsuarioLogado != usuario.id) {
                             listaContatos.add(usuario)

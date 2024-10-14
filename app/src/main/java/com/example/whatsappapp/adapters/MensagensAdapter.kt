@@ -68,12 +68,12 @@ class MensagensAdapter: Adapter<ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
-        if (viewType == Constantes.TIPO_REMETENTE)
-                        return MensagensRemetenteViewHolder.inflarLayout(parent)
-
-                    return MensagensDestinatarioViewHolder.inflarLayout(parent)
-
-    }
+        if (viewType == Constantes.TIPO_REMETENTE) {
+            return MensagensRemetenteViewHolder.inflarLayout(parent)
+        } else {
+            return MensagensDestinatarioViewHolder.inflarLayout(parent)
+            }
+        }
 
 
 

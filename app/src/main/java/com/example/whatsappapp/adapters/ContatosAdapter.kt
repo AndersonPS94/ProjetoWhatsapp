@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.example.whatsappapp.databinding.ItemContatosBinding
+import com.example.whatsappapp.model.Mensagem
 import com.example.whatsappapp.model.Usuario
 import com.squareup.picasso.Picasso
 
@@ -18,21 +19,23 @@ class ContatosAdapter(
         notifyDataSetChanged()
     }
 
-
     inner class ContatosViewHolder(
         private val binding: ItemContatosBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(usuario: Usuario) {
-            binding.textContatoNome.text = usuario.nome
-            Picasso
-                .get()
-                .load(usuario.foto)
-                .into(binding.imageContatoFoto)
 
+            binding.textContatoNome.text = usuario.nome
+            if (usuario.foto.isNotEmpty()) {
+                Picasso
+                    .get()
+                    .load(usuario.foto)
+                    .into(binding.imageContatoFoto)
+            }
             //Evento de clique
             binding.clItemContato.setOnClickListener {
                 onClick(usuario)
+
             }
         }
     }
